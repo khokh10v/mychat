@@ -7,7 +7,8 @@ var credentials = {key: privateKey, cert: certificate};
 
 const express = require('express')
 const app = express();
-const server = https.createServer(credentials, app);  // запускаем сервак 
+// const server = https.createServer(credentials, app);  // запускаем сервак 
+const server = http.createServer(app);  // запускаем сервак 
 const io = require('socket.io')(server)               // сокеты к нашему серверу
 const { v4: uuidV4 } = require('uuid')                // это приблуда для создания комнат
 
