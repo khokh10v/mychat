@@ -20,6 +20,9 @@ app.use(express.static('public'))                     // путь к папке 
 app.get('/', (req, res) => {
   res.redirect(`/${uuidV4()}`)                        // перенаправляем на комнату ( уникальный id url )
 })
+app.get('/111', (req, res) => {
+  res.send('hellow world')                        // перенаправляем на комнату ( уникальный id url )
+})
 
 app.get('/:room', (req, res) => {
   res.render('room', { roomId: req.params.room })     // создаем комнату и получаем id
