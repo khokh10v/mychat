@@ -43,13 +43,13 @@ io.on('connection', socket => {
 })
 
 
-
-
-// server.listen(3000, () => {
-//   console.log('Сервер запущен на localhost:3000')
-// })
-
 let port = process.env.PORT || 3000;
+
+server.listen(3001, () => {
+  console.log('Сервер запущен на localhost:3000')
+})
+
+
 app.get('/', (req, res) => {
   res.send('hellow world 3')                        // перенаправляем на комнату ( уникальный id url )
 })
