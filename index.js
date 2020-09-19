@@ -45,15 +45,15 @@ io.on('connection', socket => {
 
 let port = process.env.PORT || 3000;
 
-server.listen(3001, () => {
+server.listen(port, () => {
   console.log('Сервер запущен на localhost:3000')
 })
 
 
-app.get('/', (req, res) => {
-  res.send('hellow world 3')                        // перенаправляем на комнату ( уникальный id url )
-})
+// app.get('/', (req, res) => {
+//   res.send('hellow world 3')                        // перенаправляем на комнату ( уникальный id url )
+// })
 
-app.listen(port, () => {
-  console.log('Сервер запущен на localhost:3000')
-})
+// app.listen(port, () => {
+//   console.log('Сервер запущен на localhost:3000')
+// })
