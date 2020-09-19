@@ -1,19 +1,23 @@
-// var fs = require('fs')
-// var http = require('http')
-// var https = require('https')
-// var privateKey  = fs.readFileSync('./example.com+5-key.pem')
-// var certificate = fs.readFileSync('./example.com+5.pem')
-// var credentials = {key: privateKey, cert: certificate};
+var fs = require('fs')
+var http = require('http')
+var https = require('https')
+var privateKey  = fs.readFileSync('./example.com+5-key.pem')
+var certificate = fs.readFileSync('./example.com+5.pem')
+var credentials = {key: privateKey, cert: certificate};
 
 const express = require('express')
 const app = express();
+
+const server = https.createServer(credentials, app);  // запускаем сервак 
+const io = require('socket.io')(server)               // сокеты к нашему серверу
+const { v4: uuidV4 } = require('uuid')                // это приблуда для создания комнат
+
+
 let port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
   res.send('hellow world')                        // перенаправляем на комнату ( уникальный id url )
 })
-// const server = https.createServer(credentials, app);  // запускаем сервак 
-// const io = require('socket.io')(server)               // сокеты к нашему серверу
-// const { v4: uuidV4 } = require('uuid')                // это приблуда для создания комнат
+
 
 // //----------------------
 // // Пример видеочата
