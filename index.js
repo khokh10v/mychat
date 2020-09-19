@@ -54,6 +54,6 @@ app.get('/', (req, res) => {
   res.send('hellow world 2')                        // перенаправляем на комнату ( уникальный id url )
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Сервер запущен на localhost:3000')
 })
