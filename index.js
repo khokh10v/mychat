@@ -1,9 +1,9 @@
-// var fs = require('fs')
-// var http = require('http')
-// var https = require('https')
-// var privateKey  = fs.readFileSync('./example.com+5-key.pem')
-// var certificate = fs.readFileSync('./example.com+5.pem')
-// var credentials = {key: privateKey, cert: certificate};
+var fs = require('fs')
+var http = require('http')
+var https = require('https')
+var privateKey  = fs.readFileSync('./example.com+5-key.pem')
+var certificate = fs.readFileSync('./example.com+5.pem')
+var credentials = {key: privateKey, cert: certificate};
 
 const express = require('express')
 const app = express();
