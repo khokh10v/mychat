@@ -29,17 +29,19 @@ app.get('/:room', (req, res) => {
 io.on('connection', socket => {
   // Образуем комнаты для socket соединений
   socket.on('join-room', (room_id, user_id) => {
-    console.log('Приконектился пользователь: ' + room_id + ', \n' + user_id)
+    // Пользователь присоединился
     socket.join(room_id)
     socket.to(room_id).broadcast.emit('user-connected', user_id)
-
+    console.log('Приконектился пользователь: ' + room_id + ', \n' + user_id)
+    // Это наш чат вкотором происходит общение
     socket.on('chat', (msg) => {
       io.emit('chat', msg, socket.id);
       console.log('message: ' + socket.id + ' => ' + msg);
     });
-    // socket.on('disconnect', () => {
-    //   socket.to(roomId).broadcast.emit('user-disconnected', userId)
-    // })
+    // Если пользователь отключился то всем сообщаем
+    socket.on('disconnect', () => {
+      socket.to(roomId).broadcast.emit('user-disconnected', userId)
+    })
   })
 })
 
