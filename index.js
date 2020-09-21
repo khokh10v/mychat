@@ -40,7 +40,7 @@ io.on('connection', socket => {
     });
     // Если пользователь отключился то всем сообщаем
     socket.on('disconnect', () => {
-      socket.to(roomId).broadcast.emit('user-disconnected', userId)
+      socket.to(room_id).broadcast.emit('user-disconnected', user_id)
     })
   })
 })
